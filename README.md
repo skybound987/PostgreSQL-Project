@@ -32,6 +32,7 @@ The report should be refreshed on a weekly basis to keep up with new films becom
 
 Section B
 Below is SQL code for creating a custom transformation described in section A4.  
+![B](https://github.com/skybound987/PostgreSQL-Project/assets/100818602/51fc3d17-38a6-4bcf-bc85-5fa05d512b56)
 
 
 
