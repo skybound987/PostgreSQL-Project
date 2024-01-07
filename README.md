@@ -15,7 +15,8 @@ Section A3
 The film table, category table, rental table, inventory table, and film_category table will be utilized from the DVD rental database to provide the data necessary for both the detailed table and summary table.  For the detailed table, the film table is linked to the inventory table through the film_id field and provides the film title.  The category table will provide the name field that will be renamed as film_category.  The rental table provides rental_id and rental_date indicating the primary key for rentals and when the film was rented.  The inventory table functions as a link between the rental and film tables through the film_id field.  The film_category table is joined to the inventory table on the film_id field.
 For the summary table,  the rental table provides the rental_id field which is necessary to count the amount of rentals for the newly created rental_count field.  The inventory table functions the same as it does for the detailed table in that it provides the join from the rental table and film table through the film_id field to confirm which films have been rented.  The category table is joined to the film_category table through the category_id primary key to get the film category or genre name.  Below is a chart outlining the structure of the columns for both the detailed and summary tables.
 
-![_ColumnChart](https://github.com/skybound987/PostgreSQL-Project/assets/100818602/1f0ff415-8559-4ba2-8bec-f285aba0a26b)
+![_ColumnChart](https://github.com/skybound987/PostgreSQL-Project/assets/100818602/effbd755-1434-471c-97b5-381b58f3aeee)
+
 
 Section A4  
 The rental_date field in the detailed table can be transformed from its default timestamp datatype to a varchar datatype to make the date more presentable and readable on a report.  The function is named date_fix and uses the TO_CHAR function to easily convert a timestamp to a simple month, day, year format.  For example, a timestamp date such as ‘2008-05-26 13:30:48’ would be converted to ‘May 26, 2008’ using this function.  When presenting the summary table to management, this will make the table appear more presentable and readable than the default timestamp datatype.   
@@ -31,25 +32,26 @@ The report should be refreshed on a weekly basis to keep up with new films becom
 
 Section B
 Below is SQL code for creating a custom transformation described in section A4.  
-![B](https://github.com/skybound987/PostgreSQL-Project/assets/100818602/14768616-e64f-42d8-a569-b84a42b0eea6)
+
 
 
 
 Section C 
 Below is SQL code that creates the detailed and summary tables titled detailed_table and summary_table respectively.  
-![C](https://github.com/skybound987/PostgreSQL-Project/assets/100818602/6421a2f8-5449-4a37-b0f5-91e3c14c20d9)
+
 
 
 
 Section D 
 Below is a SQL Query that extracts all the data from the database tables and inserts it into the detailed_table and summary_table respectively.
-![D](https://github.com/skybound987/PostgreSQL-Project/assets/100818602/ddbb93fe-b525-468e-896e-dd3454f11c82)
+
 
 
 
 Section E
-Below is SQL code that creates a trigger on the detailed_table.  This will continually update the summary table as data is added to the detailed table.
-![E](https://github.com/skybound987/PostgreSQL-Project/assets/100818602/d9c1e7f3-50a0-44ce-9f1d-5d74e00d0488)
+Below is SQL code that creates a trigger on the detailed_table. 
+This will continually update the summary table as data is added to the detailed table.
+
 
 
 
@@ -60,8 +62,10 @@ Below is a stored procedure titled data_update_refresh() that can be called to r
 
 
 Section F1
-PostgreSQL does not have automation features that can refresh data, so another tool is required to provide automation (Dias, 2020).  A tool such as Linux crontab in conjunction with PostgreSQL can achieve this function by automatically running in the background and verifying configuration files that are based on scripts written to execute the automation (Dias, 2020).
-![F](https://github.com/skybound987/PostgreSQL-Project/assets/100818602/969c9828-da92-4ff3-8f49-cf6f977ebcf6)
+PostgreSQL does not have automation features that can refresh data, so another tool is required to provide automation (Dias, 2020).  
+A tool such as Linux crontab in conjunction with PostgreSQL can achieve this function by automatically running in the background, 
+and verifying configuration files that are based on scripts written to execute the automation (Dias, 2020).
+
 
 
 
